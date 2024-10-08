@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game with Hand-Recognition</title>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0"></script>
+    <link rel="stylesheet" href="./styles.css"> 
+</head>
+<body>
+    <!-- WebCam feed -->
+    <div id="video-container">
+        <video id="webcam" autoplay playsinline></video>
+        <div id="game-overlay">
+            <div id="header">
+                <h1 id="title">Rock, Paper, Scissors: Let's Go!</h1>
+                <div class="speaker-toggle">
+                    <img src="./assets/speaker-on.png" alt="Speaker" id="speaker-icon">
+                </div>
+            </div>
+            <div id="result"></div>
+            <button id="help-button">Help</button>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+            <span id="close-modal">&times;</span>
+            <h2>How to Play</h2>
+            <p>1. Make a thumbs up gesture to start the game.</p>
+            <p>2. When the countdown starts, prepare your move:</p>
+            <ul>
+                <li>Fist 👊 for Rock</li>
+                <li>Victory ✌️ for Scissors</li>
+                <li>Open Palm 🖐️ for Paper</li>
+            </ul>
+            <p>3. The result will be displayed after the countdown.</p>
+            <p>4. Make a thumbs up gesture to play again.</p>
+        </div>
+    </div>
+
+    </script>
+    <script type="module">
+        import { toggleSound, updateSpeakerIcon } from './scripts/main.js';
+      
+        document.querySelector('.speaker-toggle').addEventListener('click', () => {
+          toggleSound();
+          updateSpeakerIcon();
+        });    
+      </script>
+</body>
+</html>
